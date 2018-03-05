@@ -1,0 +1,1 @@
+nslookup "`whois slash16.org | grep -m1 "Name Server:" | sed s/Name\ Server:\ //`" | grep "Address:\ " | sed s/Address:\ //
