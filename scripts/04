@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ "$USER" != "root" ]; then
+	echo "Not root"
+	exit 1
+fi
+
+ACTUMD=$(md5sum /etc/crontab)
+
+if ! [ -e /etc/crontab_md5 ]; then
+	echo "$ACTUMD" > /etc/crontab_md5
+fi
+
+OLDMD=$(cat /etc/crontab_md5)
+
+if [ "$ACTUMD" != "$OLDMD" ]; then
+	if [ hash mail 2>/dev/null ]; then
+		sudo apt-get install -y mailutils
+	fi
+	mail -i -s "Crontab has changed" root <<< "$OLDMD != $ACTUMD\n"
+fi
+
+echo "$ACTUMD" > /etc/crontab_md5
