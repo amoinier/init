@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CRON_FILE="/etc/crontab
+
+if [ "$USER" != "root" ]; then
+	echo "Must be root!"
+	exit 1
+fi
+
+echo "0 0 * * * root $(pwd)/04" >> "$CRON_FILE"
