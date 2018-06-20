@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CRON_FILE="/etc/crontab
+CRON_FILE="/etc/crontab"
 
 if [ "$USER" != "root" ]; then
 	echo "Must be root!"

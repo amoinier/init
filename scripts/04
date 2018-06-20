@@ -14,7 +14,7 @@ fi
 OLDMD=$(cat /etc/crontab_md5)
 
 if [ "$ACTUMD" != "$OLDMD" ]; then
-	if [ hash mail 2>/dev/null ]; then
+	if ! [ command -v mail ]; then
 		sudo apt-get install -y mailutils
 	fi
 	mail -i -s "Crontab has changed" root <<< "$OLDMD != $ACTUMD\n"
