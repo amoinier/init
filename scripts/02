@@ -3,6 +3,6 @@ if [ "$USER" != "root" ]; then
         echo "You are not root, sorry"
         exit 1
 fi
-CMD="sudo apt-get update -y >> /var/log/update_script.log 2>&1 && sudo apt-get -y upgrade >> /var/log/update_script.log 2>&1"
+CMD="root apt-get update -y >> /var/log/update_script.log 2>&1 && sudo apt-get -y upgrade >> /var/log/update_script.log 2>&1"
 eval "$CMD"
 echo "0 4 * * 1 $CMD" >> /etc/crontab
