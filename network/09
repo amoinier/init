@@ -1,13 +1,11 @@
 nslookup 42.fr
 
-Server:		192.168.0.254
-Address:	192.168.0.254#53
+Server:		10.51.1.42
+Address:	10.51.1.42#53
 
-Non-authoritative answer:
 Name:	42.fr
-Address: 163.172.250.13
+Address: 10.52.1.76
 Name:	42.fr
-Address: 163.172.250.12
+Address: 10.52.1.12
 Name:	42.fr
-Address: 163.172.250.11
-
+Address: 10.52.1.11
